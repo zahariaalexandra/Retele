@@ -20,6 +20,7 @@ public:
 	std::vector<std::string> GetHistory();
 	void AddToHistory(std::string element);
 	void ClearHistory();
+	void ClearToken();
 
 private:
 	std::string ipSource;

@@ -35,6 +35,7 @@ void TokenRing(Token& token, std::vector<std::string>& computers)
 				token.SetReachedDestination(false);
 				token.SetFree(false);
 				token.AddToHistory(computers[index]);
+				std::cout << "Next computer... \n";
 				index++;
 			}
 			else
@@ -45,7 +46,44 @@ void TokenRing(Token& token, std::vector<std::string>& computers)
 		}
 		else
 		{
+			if (!token.GetReachedDestination())
+			{
+				if (computers[index] == token.GetIpDestination())
+				{
+					std::cout << "Destination reached!\n";
+					std::cout << "Transmited message: \"" << token.GetMessage() << "\"\n";
+					token.SetReachedDestination(true);
+					token.AddToHistory(computers[index]);
+					std::vector<std::string> history = token.GetHistory();
+					std::cout << "History: ";
+					
+					for (int computer = 0; computer < history.size(); computer++)
+					{
+						std::cout << history[computer] << " ";
+					}
 
+					std::cout << "\n";
+					std::cout << "Next computer... \n";
+					index++;
+				}
+				else
+				{
+					token.AddToHistory(computers[index]);
+					std::cout << "Destination not reached yet.\n";
+					std::cout << "Next computer... \n";
+					index++;
+				}
+			}
+			else
+			{
+				if (computers[index] == token.GetIpSource())
+				{
+					token.ClearToken();
+					std::cout << "The token is free!\n";
+				}
+				std::cout << "Next computer... \n";
+				index++;
+			}
 		}
 		
 	}

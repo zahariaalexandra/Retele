@@ -73,3 +73,13 @@ void Token::ClearHistory()
 {
 	history.clear();
 }
+
+void Token::ClearToken()
+{
+	ipSource = "";
+	ipDestination = "";
+	message = "";
+	reachedDestination = false;
+	free = true;
+	history.clear();
+}
