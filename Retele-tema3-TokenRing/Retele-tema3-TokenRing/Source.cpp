@@ -48,6 +48,7 @@ bool SourceAndDestinationExist(std::string source, std::string destination, std:
 
 void TokenRing(Token& token, std::vector<std::string> computers)
 {
+
 	bool anotherMessage = true;
 	int index = 0;
 
