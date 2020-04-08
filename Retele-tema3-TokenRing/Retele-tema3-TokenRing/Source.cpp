@@ -1,17 +1,61 @@
 #include <iostream>
+#include <fstream>
 
 #include "Token.h"
 
-void TokenRing(Token& token, std::vector<std::string>& computers)
+void Input(std::vector<std::string>& computers)
+{
+	std::ifstream fin("InputIpAddresses.txt");
+	int size;
+	fin >> size;
+	std::cout << "There are " << size << " computers connected.\n";
+
+	for (int index = 0; index < size; index++)
+	{
+		std::string element;
+		fin >> element;
+		computers.push_back(element);
+	}
+}
+
+bool SourceDifferentFromDestination(std::string source, std::string destination)
+{
+	if (source == destination)
+		return false;
+	
+	return true;
+}
+
+bool SourceAndDestinationExist(std::string source, std::string destination, std::vector<std::string> computers)
+{
+	bool exist1 = false;
+	bool exist2 = false;
+
+	for (int index = 0; index < computers.size(); index++)
+	{
+		if (computers[index] == source)
+			exist1 = true;
+		
+		if (computers[index] == destination)
+			exist2 = true;
+	}
+
+	if (exist1 && exist2)
+		return true;
+	
+	return false;
+}
+
+void TokenRing(Token& token, std::vector<std::string> computers)
 {
 	bool anotherMessage = true;
 	int index = 0;
 
 	while (anotherMessage)
 	{
-		if (index == computers.size() - 1)
+		if (index == computers.size())
 			index = 0;
-
+		
 		if (token.GetFree())
 		{
 			std::cout << "Computer " << index + 1 << ": Do you want to send a message? (1-yes; 2-no)\n";
@@ -22,11 +66,17 @@ void TokenRing(Token& token, std::vector<std::string>& computers)
 			if (option == 1)
 			{
 				token.SetIpSource(computers[index]);
-				std::cout << "Insert the destination IP.\n";
-				std::cout << "IP: ";
 				std::string ip;
-				std::cin >> ip;
-				token.SetIpDestination(ip);
+
+				do
+				{
+					std::cout << "Insert the destination IP.\n";
+					std::cout << "IP: ";					
+					std::cin >> ip;
+					token.SetIpDestination(ip);
+				} while (!SourceAndDestinationExist(computers[index], ip, computers)
+					&& !SourceDifferentFromDestination(computers[index], ip));
+
 				std::cout << "Insert your message.\n";
 				std::cout << "Message: ";
 				std::string message;
@@ -85,7 +135,6 @@ void TokenRing(Token& token, std::vector<std::string>& computers)
 				index++;
 			}
 		}
-		
 	}
 }
 
@@ -93,6 +142,9 @@ int main()
 {
 	Token token;
 	std::vector<std::string> computers;
+
+	Input(computers);
+	TokenRing(token, computers);
 
 	return 0;
 }

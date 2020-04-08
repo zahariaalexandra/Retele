@@ -1,5 +1,4 @@
 ﻿  Source.cpp
-D:\Facultate\Retele\Retele-tema3-TokenRing\Retele-tema3-TokenRing\Source.cpp(60,38): warning C4018: '<': signed/unsigned mismatch
-  Token.cpp
-  Generating Code...
+D:\Facultate\Retele\Retele-tema3-TokenRing\Retele-tema3-TokenRing\Source.cpp(34,28): warning C4018: '<': signed/unsigned mismatch
+D:\Facultate\Retele\Retele-tema3-TokenRing\Retele-tema3-TokenRing\Source.cpp(110,38): warning C4018: '<': signed/unsigned mismatch
   Retele-tema3-TokenRing.vcxproj -> D:\Facultate\Retele\Retele-tema3-TokenRing\Debug\Retele-tema3-TokenRing.exe
