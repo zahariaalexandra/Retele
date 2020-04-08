@@ -21,10 +21,27 @@ void TokenRing(Token& token, std::vector<std::string>& computers)
 			
 			if (option == 1)
 			{
-
+				token.SetIpSource(computers[index]);
+				std::cout << "Insert the destination IP.\n";
+				std::cout << "IP: ";
+				std::string ip;
+				std::cin >> ip;
+				token.SetIpDestination(ip);
+				std::cout << "Insert your message.\n";
+				std::cout << "Message: ";
+				std::string message;
+				std::cin >> message;
+				token.SetMessage(message);
+				token.SetReachedDestination(false);
+				token.SetFree(false);
+				token.AddToHistory(computers[index]);
+				index++;
 			}
 			else
+			{
+				std::cout << "Next computer... \n";
 				index++;
+			}	
 		}
 		else
 		{
