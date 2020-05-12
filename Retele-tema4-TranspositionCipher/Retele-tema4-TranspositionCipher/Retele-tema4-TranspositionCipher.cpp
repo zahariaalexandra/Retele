@@ -43,7 +43,7 @@ char FindLowestLetter(std::string key, char lastLetter)
     return lowest;
 }
 
-bool AlphabeticKey(std::string key, std::vector<char>& alphabeticKey)
+void AlphabeticKey(std::string key, std::vector<char>& alphabeticKey)
 {
     alphabeticKey.emplace_back(FindLowestLetter(key, 'a'));
 
@@ -135,12 +135,43 @@ void PrintMatrix(std::vector<std::vector<char>> matrix)
     }
 }
 
+void PrintEncryptedMessage(std::vector<std::vector<char>> matrix)
+{
+    std::ofstream fout("OutputMessage.txt");
+
+    for (int index1 = 2; index1 < matrix.size(); index1++)
+    {
+        for (int index2 = 0; index2 < matrix[index1].size(); index2++)
+        {
+            fout << matrix[index1][index2];
+            std::cout << matrix[index1][index2];
+        }
+
+        fout << " ";
+        std::cout << " ";
+    }
+}
+
 int main()
 {
     std::string key;
     std::vector<char> text;
 
     ReadFromFile(key, text);
+    
+    if (Validation(key))
+    {
+        std::vector<char> alphabeticKey;
+        AlphabeticKey(key, alphabeticKey);
+        std::vector<std::vector<char>> matrix = GenerateMatrix(key, alphabeticKey, text);
+        AddSurplusLetters(matrix);
+        std::cout << "The generated matrix:\n";
+        PrintMatrix(matrix);
+        std::cout << "The encrypted message:\n";
+        PrintEncryptedMessage(matrix);
+    }
+    else
+        std::cout << "Invalid input!\n";
 
     system("pause");
     return 0;
