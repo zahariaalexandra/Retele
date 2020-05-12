@@ -102,6 +102,39 @@ std::vector<std::vector<char>> GenerateMatrix(std::string key, std::vector<char>
     }
 }
 
+void AddSurplusLetters(std::vector<std::vector<char>>& matrix)
+{
+    std::vector<char> alphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+   
+    if (matrix[matrix.size() - 1].size() != matrix[matrix.size() - 2].size())
+    {
+        int index = 0; 
+
+        while (matrix[matrix.size() - 1].size() != matrix[matrix.size() - 2].size())
+        {
+            matrix[matrix.size() - 1].push_back(alphabet[index]);
+            index++;
+        }
+    }
+}
+
+void PrintMatrix(std::vector<std::vector<char>> matrix)
+{
+    std::ofstream fout("OutputMatrix.txt");
+
+    for (int index1 = 0; index1 < matrix.size(); index1++)
+    {
+        for (int index2 = 0; index2 < matrix[index1].size(); index2++)
+        {
+            fout << matrix[index1][index2] << " ";
+            std::cout << matrix[index1][index2] << " ";
+        }
+
+        fout << "\n";
+        std::cout << "\n";
+    }
+}
+
 int main()
 {
     std::string key;
