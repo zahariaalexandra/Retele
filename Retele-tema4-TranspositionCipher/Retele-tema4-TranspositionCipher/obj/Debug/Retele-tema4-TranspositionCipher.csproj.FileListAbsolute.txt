@@ -1,0 +1,7 @@
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\bin\Debug\Retele-tema4-TranspositionCipher.exe.config
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\bin\Debug\Retele-tema4-TranspositionCipher.exe
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\bin\Debug\Retele-tema4-TranspositionCipher.pdb
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\obj\Debug\Retele-tema4-TranspositionCipher.csprojAssemblyReference.cache
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\obj\Debug\Retele-tema4-TranspositionCipher.csproj.CoreCompileInputs.cache
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\obj\Debug\Retele-tema4-TranspositionCipher.exe
+D:\Facultate\Retele\Retele-tema4-TranspositionCipher\Retele-tema4-TranspositionCipher\obj\Debug\Retele-tema4-TranspositionCipher.pdb
