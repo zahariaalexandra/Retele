@@ -57,7 +57,7 @@ void TokenRing(Token& token, std::vector<std::string> computers)
 		if (index == computers.size())
 			index = 0;
 		
-		if (token.GetFree())
+		if (token.GetFree()) //is free
 		{
 			std::cout << "Computer " << index + 1 << ": Do you want to send a message? (1-yes; 2-no)\n";
 			int option;
@@ -95,9 +95,9 @@ void TokenRing(Token& token, std::vector<std::string> computers)
 				index++;
 			}	
 		}
-		else
+		else //is not free
 		{
-			if (!token.GetReachedDestination())
+			if (!token.GetReachedDestination()) //not reached destination
 			{
 				if (computers[index] == token.GetIpDestination())
 				{
@@ -125,7 +125,7 @@ void TokenRing(Token& token, std::vector<std::string> computers)
 					index++;
 				}
 			}
-			else
+			else //reached destination
 			{
 				if (computers[index] == token.GetIpSource())
 				{

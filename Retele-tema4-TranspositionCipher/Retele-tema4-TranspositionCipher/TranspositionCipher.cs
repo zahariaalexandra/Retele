@@ -28,10 +28,6 @@ namespace Retele_tema4_TranspositionCipher
                 Console.WriteLine("File could not be read");
                 Console.WriteLine(e.Message);
             }
-            
-
-            /*key = lines[0];
-            text = lines[1];*/
         }
 
         private static bool Validation()
